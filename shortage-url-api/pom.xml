@@ -10,4 +10,17 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>shortage-url-api</artifactId>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>agno.top.gnosis</groupId>
+            <artifactId>shortage-url-biz</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+    </dependencies>
 </project>
