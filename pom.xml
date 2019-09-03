@@ -20,6 +20,417 @@
         <version>2.1.3.RELEASE</version>
     </parent>
 
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <java.version>1.8</java.version>
+        <argLine>-Xmx1G</argLine>
+
+        <!--<spring-version>5.1.5.RELEASE</spring-version>-->
+        <mybatis.version>3.4.0</mybatis.version>
+        <dynamic-datasource-starter.version>2.5.0</dynamic-datasource-starter.version>
+        <mybatis-plus.version>3.0.4</mybatis-plus.version>
+        <mybatis-spring-boot.version>1.3.2</mybatis-spring-boot.version>
+        <tk.mapper-spring-boot.version>2.1.5</tk.mapper-spring-boot.version>
+        <pagehelper.version>1.2.3</pagehelper.version>
+        <mysql-connector-java.version>5.1.47</mysql-connector-java.version>
+        <oracle.version>10.2.0.4.0</oracle.version>
+        <hibernate-validator.version>6.0.10.Final</hibernate-validator.version>
+        <com.alicp.jetcache.jetcache-starter-redis>2.5.7</com.alicp.jetcache.jetcache-starter-redis>
+        <lettuce.version>4.4.2.Final</lettuce.version>
+        <jedis.version>2.9.0</jedis.version>
+        <redission.version>3.5.6</redission.version>
+        <druid-version>1.1.10</druid-version>
+        <fastjson.version>1.2.58</fastjson.version>
+        <guava.version>18.0</guava.version>
+        <lombok.version>1.18.4</lombok.version>
+        <logback.version>1.2.3</logback.version>
+        <logback-ext-spring.version>0.1.4</logback-ext-spring.version>
+        <slf4j-api.version>1.7.7</slf4j-api.version>
+        <rocketmq.version>4.4.0</rocketmq.version>
+        <ali.rocketmq.version>3.6.2.Final</ali.rocketmq.version>
+        <apache.commons.version>3.4</apache.commons.version>
+        <apache.common.collections>3.2.2</apache.common.collections>
+        <commons-net.version>3.2</commons-net.version>
+        <commons.io.version>2.4</commons.io.version>
+        <javax.persistence.version>1.0.2</javax.persistence.version>
+        <javax.validation.version>1.1.0.Final</javax.validation.version>
+        <elasticsearch.version>6.4.0</elasticsearch.version>
+        <elastic.job.version>2.1.2</elastic.job.version>
+        <apollo.version>1.2.0</apollo.version>
+        <junit.version>4.12</junit.version>
+        <jasypt.version>1.16</jasypt.version>
+
+        <dubbo.version>2.6.5</dubbo.version>
+        <shiro-version>1.4.0</shiro-version>
+        <shiro-redis.version>2.4.2.1-RELEASE</shiro-redis.version>
+        <spring-session.version>1.2.2.RELEASE</spring-session.version>
+        <zookeeper_version>3.5.4-beta</zookeeper_version>
+        <zkclient_version>0.1</zkclient_version>
+        <curator_version>2.10.0</curator_version>
+        <disconf-client.version>2.6.31</disconf-client.version>
+        <httpclient.version>4.4.1</httpclient.version>
+        <javassist.version>3.15.0-GA</javassist.version>
+        <gson.version>2.8.5</gson.version>
+        <commons-pool2.version>2.4.2</commons-pool2.version>
+        <servlet-api.version>3.0.1</servlet-api.version>
+        <jsp-api.version>2.2</jsp-api.version>
+        <jstl.version>1.2</jstl.version>
+        <jz.version>1.1.1</jz.version>
+        <jose4j.version>0.6.4</jose4j.version>
+        <ecj.version>4.6.1</ecj.version>
+        <xxl.job.version>2.0.1</xxl.job.version>
+        <jetcache.version>2.5.11</jetcache.version>
+        <!--plugin version -->
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <!--mybatis begin-->
+            <dependency>
+                <groupId>org.mybatis.spring.boot</groupId>
+                <artifactId>mybatis-spring-boot-starter</artifactId>
+                <version>${mybatis-spring-boot.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus</artifactId>
+                <version>${mybatis-plus.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>dynamic-datasource-spring-boot-starter</artifactId>
+                <version>${dynamic-datasource-starter.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>tk.mybatis</groupId>
+                <artifactId>mapper-spring-boot-starter</artifactId>
+                <version>${tk.mapper-spring-boot.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.pagehelper</groupId>
+                <artifactId>pagehelper-spring-boot-starter</artifactId>
+                <version>${pagehelper.version}</version>
+            </dependency>
+            <!--mybatis end-->
+            <dependency>
+                <groupId>com.github.ulisesbocchio</groupId>
+                <artifactId>jasypt-spring-boot-starter</artifactId>
+                <version>${jasypt.version}</version>
+            </dependency>
+            <!--rocketmq begin-->
+            <dependency>
+                <groupId>org.apache.rocketmq</groupId>
+                <artifactId>rocketmq-client</artifactId>
+                <version>${rocketmq.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.slf4j</groupId>
+                        <artifactId>slf4j-api</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba.rocketmq</groupId>
+                <artifactId>rocketmq-client</artifactId>
+                <version>${ali.rocketmq.version}</version>
+            </dependency>
+            <!--rocketmq end-->
+            <!--test begin-->
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>${junit.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <!--test end-->
+            <!-- log and other utils begin-->
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>${slf4j-api.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>${guava.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-io</groupId>
+                <artifactId>commons-io</artifactId>
+                <version>${commons.io.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${apache.commons.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-collections</groupId>
+                <artifactId>commons-collections</artifactId>
+                <version>${apache.common.collections}</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-net</groupId>
+                <artifactId>commons-net</artifactId>
+                <version>${commons-net.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.hibernate.validator</groupId>
+                <artifactId>hibernate-validator</artifactId>
+                <version>${hibernate-validator.version}</version>
+                <scope>compile</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>javax.persistence</groupId>
+                <artifactId>persistence-api</artifactId>
+                <version>${javax.persistence.version}</version>
+            </dependency>
+            <!-- log and other utils end-->
+            <!--cache begin-->
+            <!--<dependency>-->
+            <!--<groupId>com.alicp.jetcache</groupId>-->
+            <!--<artifactId>jetcache-anno</artifactId>-->
+            <!--<version>${com.alicp.jetcache.jetcache-starter-redis}</version>-->
+            <!--</dependency>-->
+            <!--<dependency>-->
+            <!--<groupId>com.alicp.jetcache</groupId>-->
+            <!--<artifactId>jetcache-redis</artifactId>-->
+            <!--<version>${com.alicp.jetcache.jetcache-starter-redis}</version>-->
+            <!--<optional>true</optional>-->
+            <!--</dependency>-->
+            <!--<dependency>-->
+            <!--<groupId>biz.paluch.redis</groupId>-->
+            <!--<artifactId>lettuce</artifactId>-->
+            <!--<version>${lettuce.version}</version>-->
+            <!--</dependency>-->
+            <dependency>
+                <groupId>redis.clients</groupId>
+                <artifactId>jedis</artifactId>
+                <version>${jedis.version}</version>
+            </dependency>
+            <!--<dependency>-->
+            <!--<groupId>org.redisson</groupId>-->
+            <!--<artifactId>redisson</artifactId>-->
+            <!--<version>${redission.version}</version>-->
+            <!--</dependency>-->
+            <!--cache end-->
+            <!--database start-->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql-connector-java.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.oracle</groupId>
+                <artifactId>ojdbc14</artifactId>
+                <version>${oracle.version}</version>
+            </dependency>
+            <!--database end-->
+            <!--job begin-->
+            <dependency>
+                <groupId>com.dangdang</groupId>
+                <artifactId>elastic-job-lite-core</artifactId>
+                <version>${elastic.job.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.dangdang</groupId>
+                <artifactId>elastic-job-lite-spring</artifactId>
+                <version>${elastic.job.version}</version>
+            </dependency>
+            <!--job end-->
+            <!--elasticsearch begin-->
+            <dependency>
+                <groupId>org.elasticsearch.client</groupId>
+                <artifactId>elasticsearch-rest-high-level-client</artifactId>
+                <version>${elasticsearch.version}</version>
+            </dependency>
+            <!--elasticsearch end-->
+            <!--apollo begin-->
+            <dependency>
+                <groupId>com.ctrip.framework.apollo</groupId>
+                <artifactId>apollo-client</artifactId>
+                <version>${apollo.version}</version>
+            </dependency>
+            <!--apollo end-->
+
+            <!-- web-start -->
+            <!-- shiro start -->
+            <dependency>
+                <groupId>org.apache.shiro</groupId>
+                <artifactId>shiro-core</artifactId>
+                <version>${shiro-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.shiro</groupId>
+                <artifactId>shiro-spring</artifactId>
+                <version>${shiro-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.shiro</groupId>
+                <artifactId>shiro-cas</artifactId>
+                <version>${shiro-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.shiro</groupId>
+                <artifactId>shiro-ehcache</artifactId>
+                <version>${shiro-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.crazycake</groupId>
+                <artifactId>shiro-redis</artifactId>
+                <version>${shiro-redis.version}</version>
+            </dependency>
+            <!-- shiro end -->
+            <!-- disconf start -->
+            <dependency>
+                <groupId>com.baidu.disconf</groupId>
+                <artifactId>disconf-client</artifactId>
+                <version>${disconf-client.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>httpclient</artifactId>
+                <version>${httpclient.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.google.code.gson</groupId>
+                <artifactId>gson</artifactId>
+                <version>${gson.version}</version>
+            </dependency>
+            <!-- disconf end -->
+            <!-- spring dubbo start -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid-spring-boot-starter</artifactId>
+                <version>${druid-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid</artifactId>
+                <version>${druid-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>dubbo</artifactId>
+                <version>${dubbo.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.curator</groupId>
+                <artifactId>curator-framework</artifactId>
+                <version>${curator_version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.curator</groupId>
+                <artifactId>curator-client</artifactId>
+                <version>${curator_version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.zookeeper</groupId>
+                <artifactId>zookeeper</artifactId>
+                <version>${zookeeper_version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.sgroschupf</groupId>
+                <artifactId>zkclient</artifactId>
+                <version>${zkclient_version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.javassist</groupId>
+                <artifactId>javassist</artifactId>
+                <version>${javassist.version}</version>
+            </dependency>
+            <!-- spring dubbo end -->
+            <!-- logback start -->
+            <dependency>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-classic</artifactId>
+                <version>${logback.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>jcl-over-slf4j</artifactId>
+                <version>${slf4j-api.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-core</artifactId>
+                <version>${logback.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.logback-extensions</groupId>
+                <artifactId>logback-ext-spring</artifactId>
+                <version>${logback-ext-spring.version}</version>
+            </dependency>
+            <!-- logback end -->
+            <!-- spring session start-->
+            <dependency>
+                <groupId>org.springframework.session</groupId>
+                <artifactId>spring-session</artifactId>
+                <version>${spring-session.version}</version>
+            </dependency>
+            <!-- spring session end-->
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-pool2</artifactId>
+                <version>${commons-pool2.version}</version>
+            </dependency>
+            <!-- servlet start -->
+            <dependency>
+                <groupId>javax.servlet.jsp</groupId>
+                <artifactId>jsp-api</artifactId>
+                <version>${jsp-api.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>jstl</artifactId>
+                <version>${jstl.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>javax.servlet-api</artifactId>
+                <version>${servlet-api.version}</version>
+                <scope>provided</scope>
+            </dependency>
+            <!-- servlet end-->
+            <dependency>
+                <groupId>com.idsmanager</groupId>
+                <artifactId>jwt-sdk-jdk17</artifactId>
+                <version>${jz.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.bitbucket.b_c</groupId>
+                <artifactId>jose4j</artifactId>
+                <version>${jose4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.eclipse.jdt.core.compiler</groupId>
+                <artifactId>ecj</artifactId>
+                <version>${ecj.version}</version>
+            </dependency>
+            <!--web end-->
+            <dependency>
+                <groupId>com.xuxueli</groupId>
+                <artifactId>xxl-job-core</artifactId>
+                <version>${xxl.job.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.belerweb</groupId>
+                <artifactId>pinyin4j</artifactId>
+                <version>2.5.1</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
     <dependencies>
         <dependency>
             <groupId>org.springframework</groupId>
@@ -38,13 +449,37 @@
             <artifactId>spring-boot-starter-jdbc</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-jpa</artifactId>
-        </dependency>
-        <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>5.1.19</version>
+            <version>5.1.35</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>redis.clients</groupId>
+                    <artifactId>jedis</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>io.lettuce</groupId>
+                    <artifactId>lettuce-core</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>redis.clients</groupId>
+            <artifactId>jedis</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-pool2</artifactId>
         </dependency>
     </dependencies>
 

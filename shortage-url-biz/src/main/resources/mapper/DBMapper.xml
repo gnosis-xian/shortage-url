@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.agno.gnosis.su.mapper.DBMapper">
+
+    <update id="createTable">
+        CREATE TABLE IF NOT EXISTS tb_url_${table_suffix} (
+            id int(11) NOT NULL AUTO_INCREMENT COMMENT '自增id',
+            code varchar(128) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '短链接',
+            url varchar(64) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '原始url',
+            create_time datetime(0) NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+            remark varchar(1024) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '备注',
+            extend_int int(11) NULL DEFAULT NULL COMMENT '预留INTEGER字段',
+            extend_str varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '预留VARCHAR字段',
+            PRIMARY KEY (id) USING BTREE,
+            INDEX code_index(code) USING BTREE,
+            INDEX url_index(url) USING BTREE
+        ) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '${table_comment}' ROW_FORMAT = Compact;
+        SET FOREIGN_KEY_CHECKS = 1;
+    </update>
+
+    <update id="createDomainTable">
+        create table if not exists tb_domain
+        (
+            id int not null comment '自增id' primary key,
+            domain varchar(255) null comment '域名',
+            create_time datetime default CURRENT_TIMESTAMP null comment '创建时间',
+            remark varchar(255) null comment '备注'
+        )
+    </update>
+
+    <delete id="dropUrlTables">
+        drop table tb_url_${table_suffix}
+    </delete>
+</mapper>

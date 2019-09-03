@@ -7,4 +7,7 @@ package top.agno.gnosis.su.service;
  * @Modified:
  */
 public interface UrlService {
+    String insertUrl(String url, String userAgent);
+
+    String findUrl(String code);
 }

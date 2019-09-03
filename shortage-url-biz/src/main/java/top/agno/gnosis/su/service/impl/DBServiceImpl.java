@@ -1,7 +1,12 @@
 package top.agno.gnosis.su.service.impl;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import top.agno.gnosis.su.mapper.DBMapper;
 import top.agno.gnosis.su.service.DBService;
+import top.agno.gnosis.su.utils.DBCommandLine;
+
+import java.util.Map;
 
 /**
  * @Description:
@@ -12,8 +17,18 @@ import top.agno.gnosis.su.service.DBService;
 @Service
 public class DBServiceImpl implements DBService {
 
-    @Override
-    public void createTables() {
+    Map<String, String> suffixMap = DBCommandLine.createSuffixMap();
 
+    @Autowired
+    private DBMapper dbMapper;
+
+    @Override
+    public void createUrlTables() {
+        suffixMap.keySet().stream().forEach(e -> this.dbMapper.createTable(e, suffixMap.get(e)));
+    }
+
+    @Override
+    public void createDomainTable() {
+        this.dbMapper.createDomainTable();
     }
 }

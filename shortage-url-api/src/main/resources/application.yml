@@ -4,3 +4,12 @@ spring:
 
 system:
   name: shorturl
+  domain: gnosis.gq
+
+jasypt:
+  encryptor:
+    password: ${system.name}
+    ivGeneratorClassname: org.jasypt.salt.RandomIVGenerator
+
+mybatis:
+  mapper-locations: classpath*:mapper/*Mapper.xml

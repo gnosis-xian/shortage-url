@@ -1,4 +1,4 @@
-package top.agno.gnosis.api.db;
+package top.agno.gnosis.su.api.db;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.Profile;
 import org.springframework.test.context.junit4.SpringRunner;
-import top.agno.gnosis.api.ApiApplication;
-import top.agno.gnosis.su.repository.DBRepository;
+import top.agno.gnosis.su.api.ApiApplication;
+import top.agno.gnosis.su.mapper.DBMapper;
 
 import java.util.Map;
 
@@ -23,15 +23,18 @@ import java.util.Map;
 public class DBCommandLineTest {
 
     @Autowired
-    private DBRepository dbRepository;
+    private DBMapper dbMapper;
+
+    Map<String, String> suffixMap = DBCommandLine.createSuffixMap();
 
     @Test
     public void createTables() {
-        DBCommandLine.createTables();
-//        Map<String, String> suffixMap = DBCommandLine.createSuffixMap();
-//        for (String key : suffixMap.keySet()) {
-//            this.dbRepository.createTable(key, suffixMap.get(key));
-//        }
+        suffixMap.keySet().stream().forEach(e -> this.dbMapper.createTable(e, suffixMap.get(e)));
+    }
+
+    @Test
+    public void dropTables() {
+        suffixMap.keySet().stream().forEach(e -> this.dbMapper.dropUrlTables(e));
     }
 
 }

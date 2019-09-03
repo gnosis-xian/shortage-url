@@ -1,8 +1,5 @@
 package top.agno.gnosis.su.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
 import java.util.Date;
 
 /**
@@ -11,10 +8,8 @@ import java.util.Date;
  * @Date: Created in 19:34 2019/9/2
  * @Modified:
  */
-@Entity
 public class UrlEntity {
 
-    @Id
     private Integer id;
 
     private String code;

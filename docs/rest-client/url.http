@@ -1,0 +1,7 @@
+###
+GET http://127.0.0.1:8500/shorturl/addUrl?url=http://file.gnosis.gq
+
+###
+GET http://127.0.0.1:8500/shorturl/OGE0OGQ
+
+###

@@ -8,5 +8,7 @@ package top.agno.gnosis.su.service;
  */
 public interface DBService {
 
-    void createTables();
+    void createUrlTables();
+
+    void createDomainTable();
 }

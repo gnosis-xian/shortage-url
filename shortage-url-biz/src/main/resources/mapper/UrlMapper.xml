@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.agno.gnosis.su.mapper.UrlMapper">
+
+    <insert id="insertUrl">
+        insert into tb_url_${dbNameSuffix}
+        (code, url, remark)
+        values (
+        #{code, jdbcType=VARCHAR},
+        #{url, jdbcType=VARCHAR},
+        #{remark, jdbcType=VARCHAR}
+        )
+    </insert>
+
+    <select id="countUrl" resultType="java.lang.String">
+        select code from tb_url_${dbNameSuffix}
+        where url = #{url, jdbcType=VARCHAR}
+    </select>
+
+    <select id="findUrl" resultType="java.lang.String">
+        select url from tb_url_${dbNameSuffix}
+        where code = #{code, jdbcType=VARCHAR}
+    </select>
+
+</mapper>
