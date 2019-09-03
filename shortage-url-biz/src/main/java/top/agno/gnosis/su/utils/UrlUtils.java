@@ -1,9 +1,5 @@
 package top.agno.gnosis.su.utils;
 
-import com.sun.org.apache.regexp.internal.RE;
-
-import java.util.Arrays;
-
 /**
  * @Description:
  * @Author: gaojing [01381583@yto.net.cn]

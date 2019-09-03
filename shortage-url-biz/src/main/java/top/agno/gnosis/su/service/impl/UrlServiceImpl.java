@@ -7,11 +7,7 @@ import top.agno.gnosis.su.mapper.UrlMapper;
 import top.agno.gnosis.su.service.UrlService;
 import top.agno.gnosis.su.utils.DBCommandLine;
 import top.agno.gnosis.su.utils.Md5Encryptor;
-import top.agno.gnosis.su.utils.UrlUtils;
 
-import java.io.UnsupportedEncodingException;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 import java.util.Base64;
 import java.util.Map;
 
