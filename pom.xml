@@ -32,7 +32,7 @@
         <mybatis-spring-boot.version>1.3.2</mybatis-spring-boot.version>
         <tk.mapper-spring-boot.version>2.1.5</tk.mapper-spring-boot.version>
         <pagehelper.version>1.2.3</pagehelper.version>
-        <mysql-connector-java.version>5.1.47</mysql-connector-java.version>
+        <mysql-connector-java.version>8.0.16</mysql-connector-java.version>
         <oracle.version>10.2.0.4.0</oracle.version>
         <hibernate-validator.version>6.0.10.Final</hibernate-validator.version>
         <com.alicp.jetcache.jetcache-starter-redis>2.5.7</com.alicp.jetcache.jetcache-starter-redis>
@@ -451,7 +451,7 @@
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>5.1.35</version>
+            <version>8.0.16</version>
         </dependency>
 
         <dependency>
