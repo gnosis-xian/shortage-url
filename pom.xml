@@ -34,7 +34,7 @@
         <pagehelper.version>1.2.3</pagehelper.version>
         <mysql-connector-java.version>5.1.47</mysql-connector-java.version>
         <oracle.version>10.2.0.4.0</oracle.version>
-        <hibernate-validator.version>6.0.10.Final</hibernate-validator.version>
+        <hibernate-validator.version>6.0.20.Final</hibernate-validator.version>
         <com.alicp.jetcache.jetcache-starter-redis>2.5.7</com.alicp.jetcache.jetcache-starter-redis>
         <lettuce.version>4.4.2.Final</lettuce.version>
         <jedis.version>2.9.0</jedis.version>
