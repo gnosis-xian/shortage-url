@@ -60,7 +60,7 @@
         <junit.version>4.12</junit.version>
         <jasypt.version>1.16</jasypt.version>
 
-        <dubbo.version>2.6.5</dubbo.version>
+        <dubbo.version>2.6.9</dubbo.version>
         <shiro-version>1.4.0</shiro-version>
         <shiro-redis.version>2.4.2.1-RELEASE</shiro-redis.version>
         <spring-session.version>1.2.2.RELEASE</spring-session.version>
